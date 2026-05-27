@@ -1,21 +1,21 @@
 /* ===========================================================
-   Caroma — heritage editorial design system
-   Forest green · Gold · Beverage brand since 1976
+   Caroma — refined matcha design system (Ippodo-inspired)
+   Muted matcha green · cream · charcoal · minimalist
    =========================================================== */
 
 :root {
-  /* Brand */
-  --navy:       #16331E;   /* deep forest green (dark sections) */
-  --navy-2:     #20492B;
-  --red:        #2F7A3A;   /* Caroma green — primary CTA/accent */
-  --red-deep:   #246030;
-  --gold:       #C9A227;   /* Caroma gold accent */
+  /* Brand — muted matcha + clay, calm and elegant */
+  --navy:       #33402A;   /* deep olive-matcha (dark sections) */
+  --navy-2:     #44542F;
+  --red:        #5E7042;   /* muted matcha green — primary CTA/accent */
+  --red-deep:   #4A5A34;
+  --gold:       #A98C5A;   /* muted clay/gold accent (subtle) */
 
   /* Surface + text */
-  --ink:        #20271F;   /* warm near-black text */
-  --ink-soft:   #5E6357;
-  --paper:      #FBFCF8;   /* page background */
-  --cream:      #EEF3E6;   /* alt section (soft green) */
+  --ink:        #2B2B26;   /* charcoal text */
+  --ink-soft:   #6B6B60;
+  --paper:      #FAF8F1;   /* warm off-white page background */
+  --cream:      #EFEADC;   /* soft cream alt section */
   --white:      #FFFFFF;
   --line:       rgba(32, 39, 31, 0.10);
   --line-strong:rgba(32, 39, 31, 0.16);
