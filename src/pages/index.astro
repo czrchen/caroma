@@ -7,6 +7,8 @@ const featured = [
   { img: "/images/products/product-3574722.png", name: "Blende White Coffee 3-in-1", cat: "Coffee" },
   { img: "/images/products/product-5788819.png", name: "Hong Kong Style Milk Tea", cat: "Tea" },
   { img: "/images/products/product-3574546.png", name: "Bentong Ginger with Tea", cat: "Ginger & Wellness" },
+  { img: "/images/products/product-3682004.png", name: "Pure Green Tea Matcha Powder", cat: "Matcha & Japanese" },
+  { img: "/images/products/product-4530783.png", name: "Bundle Set — Teh Tarik", cat: "Bundles" },
 ];
 
 const collections = [
@@ -27,7 +29,7 @@ const quality = [
     <div class="container hero-grid">
       <div class="hero-copy" data-hero-stagger>
         <span class="eyebrow">Malaysian Beverages · Since 1976</span>
-        <h1>The art of <span class="accent">beverage</span> perfection.</h1>
+        <h1 data-split>The art of beverage perfection.</h1>
         <p class="hero-lead">
           Caroma blends innovation with exquisite flavour — coffee, tea, Japanese matcha and
           Bentong ginger drinks, crafted in Malaysia for every moment of refreshment.
@@ -106,16 +108,24 @@ const quality = [
         </a>
       </header>
 
-      <div class="prod-grid" data-reveal-group>
-        {featured.map((p) => (
-          <a href="/products" class="prod-card">
-            <div class="prod-media"><img src={p.img} alt={p.name} loading="lazy" /></div>
-            <div class="prod-info">
+    </div>
+
+    <div class="pin-wrap" data-pin-wrap>
+      <div class="pin-track" data-pin-track>
+        {featured.map((p, i) => (
+          <a href="/products" class="pin-card">
+            <span class="pin-index">{String(i + 1).padStart(2, "0")}</span>
+            <div class="pin-media"><img src={p.img} alt={p.name} loading="lazy" /></div>
+            <div class="pin-info">
               <span class="prod-cat">{p.cat}</span>
               <h3>{p.name}</h3>
             </div>
           </a>
         ))}
+        <a href="/products" class="pin-card pin-card-cta">
+          <span>See all<br>products</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -136,7 +146,7 @@ const quality = [
         <span class="eyebrow">Why Caroma</span>
         <h2 class="section-title">Where taste meets innovation</h2>
         <p class="section-lead">Since 1976 we've blended tradition with new ideas — bringing you a diverse range of high-quality, convenient and delicious beverages, in every sip.</p>
-        <ul class="quality-list">
+        <ul class="quality-list" data-scrub>
           {quality.map((q) => (
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
@@ -144,23 +154,6 @@ const quality = [
             </li>
           ))}
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CTA ============ -->
-  <section class="cta ribbon">
-    <Wave side="top" />
-    <Wave side="bottom" />
-    <div class="container ribbon-inner">
-      <div class="cta-box" data-reveal>
-        <div class="cta-copy">
-          <h2>Stock Caroma, or build your blend.</h2>
-          <p>Retail, wholesale, OEM and export — tell us what you need and our team will take it from there.</p>
-        </div>
-        <a href="/contact" class="btn btn-primary">Get in touch
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </div>
     </div>
   </section>
@@ -264,5 +257,34 @@ const quality = [
   }
   @media (max-width: 560px) {
     .prod-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  }
+  /* ---------- FEATURED — pinned horizontal strip ---------- */
+  .pin-wrap { height: min(72vh, 560px); display: flex; align-items: stretch; overflow: hidden; }
+  .pin-track { display: flex; align-items: stretch; gap: 30px; padding: 0 max(28px, calc((100vw - var(--maxw)) / 2 + 28px)); will-change: transform; }
+  .pin-card {
+    flex: 0 0 auto; width: 330px; position: relative;
+    display: flex; flex-direction: column;
+    background: var(--white, #fff); border: 1px solid var(--line); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm); padding: 26px 28px 24px; overflow: hidden;
+    transition: box-shadow .4s ease, border-color .4s ease;
+  }
+  .pin-card:hover { box-shadow: var(--shadow-md); border-color: var(--line-strong); }
+  .pin-index { font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--line-strong); }
+  .pin-media { flex: 1; min-height: 0; background: var(--cream); border-radius: 18px; margin: 12px 0 18px; overflow: hidden; }
+  .pin-media img { width: 100%; height: 100%; object-fit: contain; padding: 22px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .pin-card:hover .pin-media img { transform: scale(1.07); }
+  .pin-info .prod-cat { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+  .pin-info h3 { font-size: 1.3rem; margin-top: 6px; letter-spacing: -0.02em; }
+  .pin-card-cta {
+    width: 250px; background: var(--navy); color: #fff; display: flex; flex-direction: column;
+    justify-content: center; gap: 16px;
+  }
+  .pin-card-cta span { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; line-height: 1.1; }
+  .pin-card-cta svg { width: 26px; height: 26px; color: var(--gold); }
+  .pin-card-cta:hover { background: var(--navy-2); }
+  @media (max-width: 760px) {
+    .pin-wrap { height: auto; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 6px 0 20px; scroll-snap-type: x mandatory; }
+    .pin-track { padding: 0 20px; }
+    .pin-card { width: 78vw; max-width: 320px; scroll-snap-align: center; }
   }
 </style>

@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Wave from "../components/Wave.astro";
 
 const filters = [
   { key: "all", label: "All Products" },
@@ -55,7 +54,7 @@ const labels: Record<string, string> = {
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow" data-reveal>Our products</span>
-      <h1 class="page-title" data-reveal>A drink for every moment</h1>
+      <h1 class="page-title" data-split>A drink for every moment</h1>
       <p class="page-lead" data-reveal>
         Coffee, tea, Japanese matcha and Bentong ginger — crafted in Malaysia since 1976.
         Filter by category to find your blend.
@@ -83,22 +82,6 @@ const labels: Record<string, string> = {
         ))}
       </div>
       <p class="no-results" id="no-results" hidden>No products in this category.</p>
-    </div>
-  </section>
-
-  <section class="oem ribbon">
-    <Wave side="top" />
-    <Wave side="bottom" />
-    <div class="container ribbon-inner">
-      <div class="oem-box" data-reveal>
-        <div class="oem-copy">
-          <h2>Wholesale, OEM & export</h2>
-          <p>Looking to stock Caroma, develop a private-label blend, or order in volume? Our team will help you bring the taste of Malaysia to your customers.</p>
-        </div>
-        <a href="/contact" class="btn btn-primary">Enquire now
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
     </div>
   </section>
 </Layout>
