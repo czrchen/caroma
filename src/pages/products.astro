@@ -1,18 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
 ---
 
 <Layout path="/products" title="Products — Caroma Beverages">
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow" data-reveal>Our products</span>
-      <h1 class="page-title" data-split>A drink for every moment</h1>
-      <p class="page-lead" data-reveal>
-        Coffee, tea, Japanese matcha and Bentong ginger — crafted in Malaysia since 1976.
-        Filter by category to find your blend.
-      </p>
-    </div>
-  </section>
+  <PageHeader eyebrow={"Our products"} title={"A drink for every moment"} subtitle={"Coffee, tea, Japanese matcha and Bentong ginger \u2014 crafted in Malaysia since 1976. Filter by category to find your blend."} />
 
   <section class="cat" style="--c:var(--red)">
     <div class="container">
@@ -557,10 +549,8 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  .page-hero { padding: 140px 0 50px; }
-  .page-title { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 18px 0 18px; letter-spacing: -0.04em; }
-  .page-lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 600px; line-height: 1.65; }
   .cat { padding: 50px 0 0; }
+  .cat:first-of-type { padding-top: 70px; }
   .cat:last-of-type { padding-bottom: 100px; }
   .cat-head { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
   .cat-bar { width: 32px; height: 6px; border-radius: 6px; background: var(--c); }
